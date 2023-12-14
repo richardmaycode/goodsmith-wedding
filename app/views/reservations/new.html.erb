@@ -1,0 +1,15 @@
+<div class="bg-slate-100 dark:bg-gray-900 min-h-screen pt-8 py-12">
+  <div>
+    <% if @reservation.errors.any? %>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <%= tag.div message %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="mx-auto w-8/12 bg-white dark:bg-gray-800 rounded-lg p-12">
+    <div>
+      <h1 class="font-bold text-4xl dark:text-white">Goodsmith Wedding RSVP</h1>
+    </div>
+    <%= render "form" %>
+  </div>
+</div>

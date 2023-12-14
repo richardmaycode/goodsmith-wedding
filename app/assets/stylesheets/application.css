@@ -13,3 +13,91 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  /* background: #556e80; */
+  font-family: "Helvetica Neue", "Open Sans", helvetica, arial, sans-serif;
+}
+
+#timer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 10px;
+
+  .timer-group {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+  }
+
+
+
+  .timer-group>.timer-label {
+    font-size: 0.50em;
+    font-weight: 400;
+
+  }
+}
+
+.font-bermuda {
+  color: #556e80
+}
+
+.font-terracotta {
+  color: #8d3e36;
+}
+
+.font-juniper {
+  color: #566036;
+}
+
+.hero-image {
+  background-position-x: 0%;
+  background-position-y: 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+.text-shadow-white {
+  text-shadow: 1px 1px 1px white;
+}
+
+.text-shadow-black {
+  text-shadow: 1px 1px 1px black;
+}
+
+.fancy-header {
+  font-family: 'Courgette', cursive;
+}
+
+.pizza-bg {
+  background-position-x: 95%;
+  background-position-y: 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.bg-beach {
+  background-position-x: 95%;
+  background-position-y: 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+
+.card-shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* <a href="https://www.flaticon.com/free-icons/dress" title="dress icons">Dress icons created by Freepik - Flaticon</a> */

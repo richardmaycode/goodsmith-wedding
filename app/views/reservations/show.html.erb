@@ -1,0 +1,55 @@
+<div class="bg-slate-100 dark:bg-gray-900 min-h-screen pt-8 py-12">
+  <div class="mx-auto w-8/12 bg-white dark:bg-gray-800 rounded-lg p-12">
+    <div class="w-10/12 mx-auto">
+      <h1 class="font-bold text-4xl dark:text-white">RSVP Recieved</h1>
+      <p class="mt-4">We have successfully captured your data, please review the information below for accurancy. You can submit any changes needed by clicking the "Edit Details" button
+    </div>
+    <div class="flex flex-wrap md:flex-nowrap justify-between w-8/12 mx-auto mt-8">
+      <div class="w-1/2">
+        <h2 class="text-2xl underline mb-4">Contact Details</h2>
+        <p>
+          <%= tag.span @reservation.full_name, class:"font-semibold text-xl" %>
+
+          <br>
+          <%= @reservation.address_one %>
+          <br>
+          <%= @reservation.city %>, <%= @reservation.state %> <%= @reservation.zipcode %>
+          <br>
+          <%= tag.span "Phone Number: ", class: "font-semibold" %> <%= @reservation.phone %>
+        <p>
+      </div>
+      <div class="w-4/12">
+        <h2 class="text-2xl underline mb-4">Response</h2>
+        <p><%= @reservation.response.tr("_", " ").titleize %></p>
+      </div>
+    </div>
+    <div class="flex flex-wrap md:flex-nowrap justify-between w-8/12 mx-auto mt-8">
+      <div class="w-1/2">
+        <h2 class="text-2xl underline mb-4">Food Preferences</h2>
+        <p>
+          <%= "No Perferences" unless @reservation.non_gluten || @reservation.non_meat %>
+          <%= "Gluten Free" if @reservation.non_gluten %>
+          <%= tag.br unless @reservation.non_gluten || @reservation.non_meat %>
+          <%= "Vegetarian/Vegan" if @reservation.non_meat %>
+        </p>
+      </div>
+      <div class="w-4/12">
+        <h2 class="text-2xl underline mb-4">Allergies Reported</h2>
+          <% if @reservation.allergens.any? %>
+            <% @reservation.allergens.each do |allergen| %>
+              <%= tag.div allergen.name %>
+            <% end %>
+          <% else %>
+            <%= "No Allergies Reported" unless @reservation.allergens.any? %>
+          <% end %>
+      </div>
+    </div>
+    <div class="flex flex-wrap md:flex-nowrap justify-between w-4/12 mx-auto mt-8 h-16 items-center">
+      <div class="w-1/2">
+        <%= link_to "Edit Details", edit_reservation_path(@reservation), class: "text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" %>
+      </div>
+      <div class="w-1/2">
+        <%= link_to "Finish", root_path, class: "py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200" %>
+      </div>
+    </div>
+</div>

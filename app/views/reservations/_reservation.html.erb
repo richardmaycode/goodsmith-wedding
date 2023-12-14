@@ -1,0 +1,29 @@
+<tr class="border border-slate-200 text-center">
+  <td class="border border-slate-200"><%= reservation.full_name %></td>
+  <td class="border border-slate-200"><%= reservation.response.tr("_", " ").titleize %></td>
+  <td class="border border-slate-200">
+    <p class="p-4 text-left">
+      <%= reservation.address_one %>
+      <br />
+      <%= reservation.city %>, <%= reservation.state %> <%= reservation.zipcode %>
+      <br />
+      <br />
+      <span class="font-semibold">Phone Number: </span><%= reservation.phone.blank? ? "Not Provided" : reservation.phone %>
+    </p>
+  </td>
+  <td class="border border-slate-200">
+    <%= "No Perferences" unless reservation.non_gluten || reservation.non_meat %>
+    <%= "Gluten Free" if reservation.non_gluten %>
+    <%= tag.br unless reservation.non_gluten || reservation.non_meat %>
+    <%= "Vegetarian/Vegan" if reservation.non_meat %>
+  </td>
+  <td class="border border-slate-200">      
+    <% if reservation.allergens.any? %>
+      <% reservation.allergens.each do |allergen| %>
+        <%= tag.div allergen.name %>
+      <% end %>
+    <% else %>
+        <%= "No Allergies Reported" unless reservation.allergens.any? %>
+    <% end %>
+  </td>
+</tr>
