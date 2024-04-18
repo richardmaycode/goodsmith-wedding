@@ -1,0 +1,19 @@
+<div class="bg-slate-100 dark:bg-gray-900 min-h-screen pt-8 py-12">
+  <% if @reservation.errors.any? %>
+    <div class="py-12 mb-4 w-1/2 mx-auto  bg-white dark:bg-gray-800 rounded-lg p-12">
+      <h2 class="text-2xl">Opps Somethings Wrong!</h2>
+      <p class="py-4"> We weren't able to save your imformation review the reasons below</p>
+      <ul class="list-disc no-underline py-4 px-8">
+        <% @reservation.errors.full_messages.each do |message| %>
+          <%= tag.li message %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mx-auto w-8/12 bg-white dark:bg-gray-800 rounded-lg p-12">
+    <div>
+      <h1 class="font-bold text-4xl dark:text-white">Edit RSVP</h1>
+    </div>
+    <%= render "form" %>
+  </div>
+</div>

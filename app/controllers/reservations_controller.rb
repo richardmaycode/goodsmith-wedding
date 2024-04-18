@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[show destroy, confirmation]
+  before_action :set_reservation, only: %i[show edit update destroy confirmation]
   def index
     @reservations = Reservation.all
   end
@@ -17,6 +17,16 @@ class ReservationsController < ApplicationController
       redirect_to @reservation
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @reservation.update(reservation_params)
+      redirect_to :reservations
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
