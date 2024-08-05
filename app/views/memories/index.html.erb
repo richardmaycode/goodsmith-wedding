@@ -1,0 +1,13 @@
+<div class="my-4 flex flex-col justify-center gap-4 w-1/2 mx-auto text-center">
+  <h1 class="font-bold text-4xl">Wedding Memories</h1>
+  <div class="flex w-1/2 mx-auto">
+    <%= link_to "Add a memory", new_memory_path, class: "w-full text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" %>
+  </div>
+</div>
+<%= turbo_frame_tag :memories, class: "grid grid-cols-4 w-1/2 mx-auto gap-4" do %>
+  <%= render @memories %>
+<% end %>
+<%= turbo_frame_tag :pagination, 
+    loading: :lazy,
+    src: memories_path(format: :turbo_stream, page: @pagy.next)
+%>

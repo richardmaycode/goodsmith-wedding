@@ -1,0 +1,5 @@
+<% memory.images.each do |image| %>
+  <%= tag.div class: "h-auto max-w-full rounded-lg" do %>
+    <%= image_tag url_for(image), class: "max-h-64 max-w-64", data: { lightbox_target: "image", action: "click->lightbox#open", lightbox_url_value: url_for(image) }%>
+  <% end %>
+<% end %>
