@@ -17,7 +17,7 @@ class MemoriesController < ApplicationController
     @memory = Memory.new(memory_params)
 
     if @memory.save
-      redirect_to memories_path
+      redirect_to memories_path(format: :html)
     else
       render :new
     end
