@@ -1,7 +1,7 @@
 class MemoriesController < ApplicationController
   include Pagy::Backend
   def index
-    @pagy, @memories = pagy(Memory.with_attached_images.all, items: 3)
+    @pagy, @memories = pagy(Memory.with_attached_images.all, items: 10)
     
     respond_to do |format|
       format.html
