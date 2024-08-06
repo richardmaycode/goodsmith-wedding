@@ -7,7 +7,9 @@
 <%= turbo_frame_tag :memories, class: "grid grid-cols-4 w-1/2 mx-auto gap-4" do %>
   <%= render @memories %>
 <% end %>
-<%= turbo_frame_tag :pagination, 
+<% if @pagy.next.present? %>
+  <%= turbo_frame_tag :pagination, 
     loading: :lazy,
     src: memories_path(format: :turbo_stream, page: @pagy.next)
-%>
+  %>
+<% end %>
