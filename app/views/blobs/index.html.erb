@@ -1,0 +1,7 @@
+<%= tag.ul id: "urls" do %>
+  <%= @memories.each do |memory| %>
+    <% memory.images.each do |image| %>
+      <%= tag.li image.url %>
+    <% end %>
+  <% end %>
+<% end %>
