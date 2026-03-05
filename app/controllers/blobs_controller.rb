@@ -3,3 +3,4 @@ class BlobsController < ApplicationController
   def index
     @memories = Memory.all
   end
+end
