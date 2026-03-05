@@ -13,6 +13,13 @@ digitalocean:
   secret_access_key: <%= Rails.application.credentials.dig(:do_space, :secret_key) %>
   bucket: goodsmith-wedding
   region: unused
+
+mirror:
+  service: Mirror
+  primary: local
+  mirrors:
+    - digitalocean
+
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
