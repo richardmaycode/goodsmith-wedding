@@ -14,7 +14,7 @@ digitalocean:
   bucket: goodsmith-wedding
   region: unused
 
-mirror:
+production:
   service: Mirror
   primary: local
   mirrors:
